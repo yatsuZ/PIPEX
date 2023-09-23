@@ -1,38 +1,44 @@
-# PIPEX
-Projet Pipex de 42
+# Projet Pipex 42
 
-## Description le but du projet est de reproduire les pip.
+## Description
 
-```
-Exemple :
+Le projet Pipex de 42 consiste à recréer le fonctionnement des pipes dans un environnement Unix en utilisant C. L'objectif est de permettre l'exécution de deux commandes en série, en redirigeant la sortie de la première commande vers l'entrée de la deuxième commande, tout en prenant en charge la gestion des fichiers.
 
- $> < infile ls -l | wc -l > outfile
- $> < infile grep a1 | wc -w > outfile
+### Exemples
+
+Voici comment fonctionnent les pipes en shell Unix :
+
+```shell
+$> < infile ls -l | wc -l > outfile
+$> < infile grep a1 | wc -w > outfile
 
 Ce que doit faire mon programme :
 
 $> ./pipex infile "ls -l" "wc -l" outfile
 $> ./pipex infile "grep a1" "wc -w" outfile
+
 ```
-mon programme dois s'exécute de cette manière :
+
+## Utilisation
+
+Le programme doit être exécuté de la manière suivante :
 
 |  ./pipex file1 cmd1 cmd2 file2
 
-Il faut prendre 4 arguments :
-• file1 et file2 sont des noms de fichiers.
-• cmd1 et cmd2 sont des commandes shell avec leurs paramètres.
+- file1 et file2 sont des noms de fichiers.
+- cmd1 et cmd2 sont des commandes shell avec leurs paramètres.
 
-Description :
+Le programme exécute cmd1 en prenant file1 comme entrée, puis redirige la sortie de cmd1 vers cmd2. Enfin, la sortie de cmd2 est écrite dans file2.
 
-je dois executer cmd1 en prenant comment entrée file 1 puis 
-cmd2 prendra comment entre la sortie de cmd1 pour finir
-la sortie de cmd2 sera dans file2.
+## Cas particulier
 
-Cas particulier :
+Le programme doit gérer des cas où plusieurs commandes sont exécutées simultanément, par exemple :
 
+```shell
 time < infile | sleep 5 | sleep 10 | sleep 5 > outfile
+```
 
-Les sleep sexecute en meme temp DONC les cmd dois sexecute en meme temp.
+Les commandes sleep doivent s'exécuter en même temps.
 
 ## TO DO
 
@@ -40,9 +46,30 @@ A chaque étape, vérifier l'absence de fuites de mémoire !!!
 
 |       CE QUE JE DOIS FAIRE        |  valide      |
 | ----------------------------- | ------------ |
-|      Pouvoir juste execute une commande en mode juste faire "./pipex ls" | X |
-|      Pouvoir rediriger la sortie vers un fchier et si le fichier n'existe pas le crée | X |
-|      Pouvoir metre une entre de fichier a une commande | X |
+|      Pouvoir exécuter une commande en mode simple comme "./pipex ls"	 | X |
+|      Pouvoir rediriger la sortie vers un fichier et le créer s'il n'existe pas | X |
+|      Pouvoir rediriger l'entrée d'une commande à partir d'un fichier | X |
 |      Pouvoir rediriger la sortie de cmd1 vers cmd2 | X |
-|      Fusione tout ce qui est dis | X |
-|      Faire que les cmd sexecute simultanement. | X |
+|      Fusionner toutes les fonctionnalités | X |
+|      Assurer que les commandes s'exécutent simultanément | X |
+
+## Exigences
+
+Votre projet doit respecter les règles suivantes :
+
+- Vous devez fournir un Makefile qui compilera vos fichiers sources.
+- Votre programme ne doit pas se terminer de manière inattendue (erreur de segmentation, erreur de bus, double libération, etc.).
+- Évitez les fuites de mémoire.
+
+## Auteur
+
+Ce projet a été réalisé par MOI !!! :smiley:
+
+| Info          | Ou me retrouver                                                      |
+| ------------- | -------------------------------------------------------------------- |
+| Nom👋         | Zaoui                                                                |
+| Prenom😄      | Yassine                                                              |
+| Pseudo😁      | Yatsu                                                                |
+| Login 42🏫    | Yzaoui                                                               |
+| E-mail📬      | y.zaoui.pro@gmail.com                                                |
+| Instagram📸   | [@yatsu__officiel](https://www.instagram.com/yatsu__officiel/)       |
