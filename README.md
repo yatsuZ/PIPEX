@@ -2,7 +2,10 @@
 
 ## Description
 
-Le projet Pipex de 42 consiste à recréer le fonctionnement des pipes dans un environnement Unix en utilisant C. L'objectif est de permettre l'exécution de deux commandes en série, en redirigeant la sortie de la première commande vers l'entrée de la deuxième commande, tout en prenant en charge la gestion des fichiers.
+Le projet Pipex de 42 consiste à recréer le fonctionnement des pipes dans un environnement Unix en utilisant C.
+L'objectif est de permettre l'exécution de deux commandes en série, 
+en redirigeant la sortie de la première commande vers l'entrée de la deuxième commande, 
+tout en prenant en charge la gestion des fichiers.
 
 ### Exemples
 
@@ -11,19 +14,22 @@ Voici comment fonctionnent les pipes en shell Unix :
 ```shell
 $> < infile ls -l | wc -l > outfile
 $> < infile grep a1 | wc -w > outfile
+```
 
 Ce que doit faire mon programme :
 
+```shell
 $> ./pipex infile "ls -l" "wc -l" outfile
 $> ./pipex infile "grep a1" "wc -w" outfile
-
 ```
 
 ## Utilisation
 
 Le programme doit être exécuté de la manière suivante :
 
-|  ./pipex file1 cmd1 cmd2 file2
+```shell
+./pipex file1 cmd1 cmd2 file2
+```
 
 - file1 et file2 sont des noms de fichiers.
 - cmd1 et cmd2 sont des commandes shell avec leurs paramètres.
@@ -52,6 +58,7 @@ A chaque étape, vérifier l'absence de fuites de mémoire !!!
 |      Pouvoir rediriger la sortie de cmd1 vers cmd2 | X |
 |      Fusionner toutes les fonctionnalités | X |
 |      Assurer que les commandes s'exécutent simultanément | X |
+|      Parsing | X |
 
 ## Exigences
 
