@@ -62,10 +62,10 @@ A chaque étape, vérifier l'absence de fuites de mémoire !!!
 
 ## Exigences
 
-Votre projet doit respecter les règles suivantes :
+Mon projet doit respecter les règles suivantes :
 
-- Vous devez fournir un Makefile qui compilera vos fichiers sources.
-- Votre programme ne doit pas se terminer de manière inattendue (erreur de segmentation, erreur de bus, double libération, etc.).
+- Je dois fournir un Makefile qui compilera mes fichiers sources.
+- Mon programme ne doit pas se terminer de manière inattendue (erreur de segmentation, erreur de bus, double libération, etc.).
 - Évitez les fuites de mémoire.
 
 ## Auteur
