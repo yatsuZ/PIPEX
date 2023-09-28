@@ -6,12 +6,22 @@
 #    By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 13:27:30 by yatsu             #+#    #+#              #
-#    Updated: 2023/09/28 15:28:40 by yatsu            ###   ########.fr        #
+#    Updated: 2023/09/29 01:22:03 by yatsu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME_FILES	=	main.c	\
-					get_path.c
+SRC_STRUCT		=	init_cmd.c
+
+FOLDER_STRUC	=	struct/
+
+STRUCT_PATH		=	${addprefix ${FOLDER_STRUC}, ${SRC_STRUCT}}
+
+
+SRC_NAME_FILES	=	main.c			\
+					get_path.c		\
+					exec_cmd.c		\
+					${STRUCT_PATH}	\
+
 SRC_PATH		=	./src/
 SRC				=	${addprefix ${SRC_PATH}, ${SRC_NAME_FILES}}
 
