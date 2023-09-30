@@ -3,30 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   init_pipex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 01:53:57 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 03:47:19 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/01 00:04:02 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../header/pipex.h"
 
-t_cmd	*ft_init_pipex(int argc, char **argv, char **env)
+void	free_file(t_file *f)
+{
+	if (!f)
+		return ;
+	free(f->path);
+	f->path = NULL;
+	f->fd = 0;
+	free(f);
+}
+
+t_file	*ft_init_file(char *path, int *error)
+{
+	t_file	*file;
+
+	file = ft_calloc(1, sizeof(t_file));
+	if (!file)
+		return (*error = 1, NULL);
+	file->path = local_path(path, error);
+	file->fd = 0;
+	if (!file->path)
+		return (*error = 4, file);
+	if (!access(file->path, F_OK) && !access(path, R_OK))
+		return (file);
+	return (*error = 2, file);
+
+}
+
+t_pipex	*ft_init_pipex(char **argv, char **env)
 {
 	t_pipex	*pipex;
 
-	if (argc < 3 || !argv[1] || !argv[2])
-		return (ft_printf("ERREUR dans les parametres!!!\n\n"), NULL);
 	pipex = ft_calloc(1, sizeof(t_pipex));
 	if (!pipex)
-		return (ft_printf("Il y a eu une erreur de Memoire!\n\n"), NULL);
+		return (NULL);
 	pipex->env = env;
 	pipex->error = 0;
 	pipex->cmd1 = ft_init_cmd(argv[2], pipex->env, &(pipex->error));
+	if (pipex->error)
+		return	(pipex);
+	pipex->f1 = ft_init_file(argv[1], &(pipex->error));
+	return (pipex);
 }
 
 void	free_pipex(t_pipex *p)
 {
-	pipex->
+	if (!p)
+		return ;
+	p->env = 0;
+	p->error = 0;
+	free_file(p->f1);
+	free_cmd(p->cmd1);
+	free(p);
+	p = NULL;
 }

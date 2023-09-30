@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:40:28 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 03:54:10 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/01 00:01:32 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ t_cmd	*ft_init_cmd(char *argv, char **env, int *error)
 
 void	free_cmd(t_cmd *cmd)
 {
-	free(cmd->path);
+	if (!cmd)
+		return ;
 	cmd->argv = NULL;
-	free_tab(cmd->cmd);
-	cmd->path = NULL;
-	free(cmd);
 	cmd->fd = 0;
-	cmd = NULL;
+	free(cmd->path);
+	free_tab(cmd->cmd);
+	free(cmd);
 }

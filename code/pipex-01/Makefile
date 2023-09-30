@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+         #
+#    By: yassine <yassine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 13:27:30 by yatsu             #+#    #+#              #
-#    Updated: 2023/09/30 01:56:26 by yatsu            ###   ########.fr        #
+#    Updated: 2023/09/30 23:37:44 by yassine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ STRUCT_PATH		=	${addprefix ${FOLDER_STRUC}, ${SRC_STRUCT}}
 SRC_NAME_FILES	=	main.c			\
 					get_path.c		\
 					exec_cmd.c		\
+					error.c			\
 					${STRUCT_PATH}	\
 
 SRC_PATH		=	./src/

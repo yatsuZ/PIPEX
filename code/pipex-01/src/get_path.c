@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:48:46 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 04:11:24 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/01 00:10:56 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ char	*get_path_cmd(char **env, char *cmd, int *error)
 		free(path);
 	}
 	path = local_path(cmd, error);
-	if (!access(path, F_OK) && !access(path, X_OK) && !access(path, R_OK))
+	if (!path)
+		return (*error = 3, free_tab(tab_path), NULL);
+	else if (!access(path, F_OK) && !access(path, X_OK) && !access(path, R_OK))
 		return(free_tab(tab_path), path);
-	else if (!access(path, F_OK))
-		return(free_tab(tab_path), *error = 2, path);
-	return (free_tab(tab_path), free(path), NULL);
+	return (free_tab(tab_path), *error = 2, path);
 }

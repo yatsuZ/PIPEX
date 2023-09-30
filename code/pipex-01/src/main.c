@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:59:46 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 04:11:53 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/09/30 23:37:23 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	main(int ac, char **av, char **env)
 {
 	t_pipex	*pipex;
 
-	pipex = ft_init_pipex(ac, av, env);
-	if (!pipex)
-		return (1);
-	if (pipex->error)
+	if (ac < 3 || !av[1] || !av[2])
+		return (ft_printf("ERREUR dans les parametres!!!\n\n"), 0);
+	pipex = ft_init_pipex(av, env);
+	if (!pipex || pipex->error)
 		return (error_gestion(pipex));
 	// ft_printf("Voici le chemin de la commande : \"%s\"\n", pipex->cmd1->argv);
 	// ft_printf("%s\n", pipex->cmd1->path);
