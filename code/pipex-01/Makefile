@@ -6,11 +6,12 @@
 #    By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 13:27:30 by yatsu             #+#    #+#              #
-#    Updated: 2023/09/29 21:00:29 by yatsu            ###   ########.fr        #
+#    Updated: 2023/09/30 01:56:26 by yatsu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_STRUCT		=	init_cmd.c
+SRC_STRUCT		=	init_cmd.c		\
+					init_pipex.c
 
 FOLDER_STRUC	=	struct/
 

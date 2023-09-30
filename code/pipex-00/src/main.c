@@ -6,7 +6,7 @@
 /*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:59:46 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/29 01:24:36 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/09/29 21:00:37 by yatsu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	main(int ac, char **av, char **env)
 {
 	t_cmd	*cmd1;
 	int		error;
-	char	*res;
 	int		status;
 
 	error = 0;
