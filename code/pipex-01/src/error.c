@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 02:42:17 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 03:37:56 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/02 20:09:07 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	error_gestion(t_pipex *p)
 	error = p->error;
 	if (error == 2)
 		ft_printf("Pas le droit d'execution ou de lecture ou de Read!\n\
-		Soit il s'agit les fichier ou les commande\n");
+		Soit il s'agit des fichier ou des commande\n");
 	else if (error == 1)
 		ft_printf("Il y a eu une erreur de Memoire, malloc -_-!\n\n");
 	else if (error == 3)
