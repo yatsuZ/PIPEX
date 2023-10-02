@@ -6,7 +6,7 @@
 /*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 01:53:57 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/02 20:07:27 by yassine          ###   ########.fr       */
+/*   Updated: 2023/10/02 21:44:02 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ t_pipex	*ft_init_pipex(char **argv, char **env)
 		return (NULL);
 	pipex->env = env;
 	pipex->error = 0;
+	if (pipe(pipex->pipfd) < 0)
+		return (pipex->error = 6, pipex);
 	pipex->cmd1 = ft_init_cmd(argv[2], pipex->env, &(pipex->error));
 	if (pipex->error)
 		return	(pipex);

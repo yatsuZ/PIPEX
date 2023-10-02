@@ -6,7 +6,7 @@
 /*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:40:28 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/02 20:04:30 by yassine          ###   ########.fr       */
+/*   Updated: 2023/10/02 21:59:54 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_cmd	*ft_init_cmd(char *argv, char **env, int *error)
 	if (cmd && !cmd->cmd)
 		return (cmd->path = NULL, *error = 1, cmd);
 	cmd->path = get_path_cmd(env, cmd->cmd[0], error);
-	cmd->fd = 0;
 	return (cmd);
 }
 
@@ -33,7 +32,6 @@ void	free_cmd(t_cmd *cmd)
 	if (!cmd)
 		return ;
 	cmd->argv = NULL;
-	cmd->fd = 0;
 	free(cmd->path);
 	free_tab(cmd->cmd);
 	free(cmd);

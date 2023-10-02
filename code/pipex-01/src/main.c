@@ -6,7 +6,7 @@
 /*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:59:46 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 23:37:23 by yassine          ###   ########.fr       */
+/*   Updated: 2023/10/02 21:16:22 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,10 @@ int	main(int ac, char **av, char **env)
 	pipex = ft_init_pipex(av, env);
 	if (!pipex || pipex->error)
 		return (error_gestion(pipex));
-	// ft_printf("Voici le chemin de la commande : \"%s\"\n", pipex->cmd1->argv);
-	// ft_printf("%s\n", pipex->cmd1->path);
-	// ft_printf("Execution de la cmd = \n");
-	// exec_cmd1(pipex->cmd1, env);
-	// waitpid(-1, &(pipex->status), 0);
-	free_pipex(pipex);
-	return (0);
+	ft_printf("Voici le chemin de l\'argument : \"%s\"\n", pipex->cmd1->argv);
+	ft_printf("%s\n", pipex->cmd1->path);
+	ft_printf("Execution de la cmd = \n");
+	exec_f1_to_cmd1(pipex);
+	waitpid(-1, &(pipex->status), 0);
+	return (free_pipex(pipex), 0);
 }
-
-// faire gestion derreur avec pour chaque erreur soit pas trouver etc et cree les fonction dinitialisation.

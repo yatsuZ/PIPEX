@@ -6,7 +6,7 @@
 /*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:02:50 by yatsu             #+#    #+#             */
-/*   Updated: 2023/09/30 23:33:28 by yassine          ###   ########.fr       */
+/*   Updated: 2023/10/02 21:15:42 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@ void	free_cmd(t_cmd *cmd);
 void	free_tab(char **tab);
 char	*get_path_cmd(char **env, char *cmd, int *error);
 void	free_pipex(t_pipex *pipex);
-int		error_gestion(t_pipex *p);
 
 // PIP
 
 char	*local_path(char *cmd, int *error);
 void	exec_cmd1(t_cmd *cmd, char **env);
+void	exec_f1_to_cmd1(t_pipex *p);
+
+// ERREUR GESTION
+
+int		error_gestion(t_pipex *p);
+void	erreur_dans_fork(t_pipex *p, int error);
 
 #endif
