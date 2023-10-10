@@ -1,0 +1,9 @@
+total 132
+drwxrwxr-x 2 yatsu yatsu   4096 oct.  10  2023 header
+-rwxrwxr-x 1 yatsu yatsu    308 oct.  10 02:17 in
+drwxrwxr-x 3 yatsu yatsu   4096 oct.  10 02:17 library
+-rw-rw-r-- 1 yatsu yatsu   1661 oct.  10 02:17 Makefile
+-rw-r--r-- 1 yatsu yatsu      0 oct.  10 02:58 out
+-rwxrwxr-x 1 yatsu yatsu 106864 oct.  10 02:58 pipex
+drwxrwxr-x 3 yatsu yatsu   4096 oct.  10 02:58 src
+-r-xr-xr-x 1 yatsu yatsu     32 oct.  10 02:17 test.sh
