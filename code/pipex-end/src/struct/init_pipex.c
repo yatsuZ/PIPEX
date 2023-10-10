@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_pipex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 01:53:57 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 03:22:58 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/10 17:41:16 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@ t_file	*ft_init_file(char *path, int *error, int param)
 {
 	t_file	*file;
 
+	if (*error)
+		return (NULL);
 	file = ft_calloc(1, sizeof(t_file));
 	if (!file)
 		return (*error = 1, NULL);
 	file->path = local_path(path, error, param);
 	file->fd = 0;
-	if (param && ((access(file->path, F_OK)) || (!access(file->path, F_OK) && (!access(path, W_OK)))))
+	if (param && \
+	((access(file->path, F_OK)) || \
+	(!access(file->path, F_OK) && (!access(path, W_OK)))))
 		return (file);
 	else if (param)
 		return (*error = 7, file);
@@ -54,14 +58,8 @@ t_pipex	*ft_init_pipex(char **argv, char **env)
 	if (pipe(pipex->pipfd) < 0)
 		return (pipex->error = 6, pipex);
 	pipex->f1 = ft_init_file(argv[1], &(pipex->error), 0);
-	if (pipex->error)
-		return (pipex);
 	pipex->cmd1 = ft_init_cmd(argv[2], pipex->env, &(pipex->error));
-	if (pipex->error)
-		return (pipex);
 	pipex->cmd2 = ft_init_cmd(argv[3], pipex->env, &(pipex->error));
-	if (pipex->error)
-		return (pipex);
 	pipex->f2 = ft_init_file(argv[4], &(pipex->error), 1);
 	return (pipex);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:40:28 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/02 21:59:54 by yassine          ###   ########.fr       */
+/*   Updated: 2023/10/10 17:40:21 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_cmd	*ft_init_cmd(char *argv, char **env, int *error)
 {
 	t_cmd	*cmd;
 
+	if (*error)
+		return (NULL);
 	cmd = ft_calloc(1, sizeof(t_cmd));
 	if (cmd == NULL)
 		return (*error = 1, NULL);

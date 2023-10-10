@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 02:42:17 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 03:12:10 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/10 17:48:23 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ int	error_gestion(t_pipex *p)
 	int	error;
 
 	if (!p)
-		return (ft_printf("Gestion d'erreur la struct pipex NULL error\n"), 1);
+		return (ft_printf("ERROR\nGestion d'erreur la struct pipex NULL\n"), 1);
 	error = p->error;
 	if (error == 2)
-		ft_printf("Pas le droit d'execution ou de lecture ou de Read!\n\
+		ft_printf("ERROR\nPas le droit d'execution ou de lecture ou de Read!\n\
 		Soit il s'agit des fichier ou des commande\n");
 	else if (error == 1)
-		ft_printf("Il y a eu une erreur de Memoire, malloc -_-!\n\n");
+		ft_printf("ERROR\nIl y a eu une erreur de Memoire, malloc -_-!\n\n");
 	else if (error == 3)
-		ft_printf("la commande 1 ne fue pas trouver.\n\n");
+		ft_printf("ERROR\nLa commande 1 OU 2 ne fue pas trouver.\n\n");
 	else if (error == 4)
-		ft_printf("le fichier 1 ne fue pas trouver.\n\n");
+		ft_printf("ERROR\nle fichier 1 ne fue pas trouver.\n\n");
 	else if (error == 6)
-		ft_printf("Erreur generation de fd.\n\n");
+		ft_printf("ERROR\nGeneration de fd fail.\n\n");
 	else if (error == 7)
-		ft_printf("ERROR.\nOn ne peut pas ecrire dans \"%s\" on as pas les droits.\n"\
-		, p->f2->path);
+		ft_printf("ERROR Write.\nOn ne peut pas ecrire dans \"%s\".\n", \
+		p->f2->path);
 	free_pipex(p);
 	return (0);
 }

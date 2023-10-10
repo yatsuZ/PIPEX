@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:21:56 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 03:20:40 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/10 17:29:52 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	exec_f1_to_cmd1(t_pipex *p)
 	}
 }
 
+int	my_open(char *path)
+{
+	return (open(path, O_WRONLY | O_CREAT | O_TRUNC, CREAT_WRITE));
+}
+
 void	exec_cmd2_to_f2(t_pipex *p)
 {
 	p->cmd2->pid = fork();
@@ -38,7 +43,7 @@ void	exec_cmd2_to_f2(t_pipex *p)
 		perror("fork");
 	if (!p->cmd2->pid)
 	{
-		p->f2->fd = open(p->f2->path, O_WRONLY | O_CREAT | O_TRUNC, CREAT_WRITE);
+		p->f2->fd = my_open(p->f2->path);
 		if (p->f2->fd < 0)
 			erreur_dans_fork(p, 8);
 		close(p->pipfd[1]);

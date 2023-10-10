@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yatsu <yatsu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:05:44 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 03:02:44 by yatsu            ###   ########.fr       */
+/*   Updated: 2023/10/10 17:26:57 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
-# include "./import.h"
+# include "./constante.h"
 
 // je definie mes structure ici.
 
