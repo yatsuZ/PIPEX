@@ -6,7 +6,7 @@
 /*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 01:53:57 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 17:41:16 by yzaoui           ###   ########.fr       */
+/*   Updated: 2023/10/10 18:23:48 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	free_pipex(t_pipex *p)
 		return ;
 	p->env = 0;
 	p->error = 0;
+	close(p->pipfd[0]);
+	close(p->pipfd[1]);
 	free_file(p->f1);
 	free_file(p->f2);
 	free_cmd(p->cmd1);

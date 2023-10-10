@@ -12,15 +12,15 @@ tout en prenant en charge la gestion des fichiers.
 Voici comment fonctionnent les pipes en shell Unix :
 
 ```shell
-$> < infile ls -l | wc -l > outfile
-$> < infile grep a1 | wc -w > outfile
+$> < in ls -l | wc -l > outfile
+$> < in grep a1 | wc -w > outfile
 ```
 
 Ce que doit faire mon programme :
 
 ```shell
-$> ./pipex infile "ls -l" "wc -l" outfile
-$> ./pipex infile "grep a1" "wc -w" outfile
+$> ./pipex in "ls -l" "wc -l" out
+$> ./pipex in "grep a1" "wc -w" out
 ```
 
 ## Utilisation

@@ -6,7 +6,7 @@
 /*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 02:42:17 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 17:48:23 by yzaoui           ###   ########.fr       */
+/*   Updated: 2023/10/10 18:22:41 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	erreur_dans_fork(t_pipex *p, int error)
 		ft_printf("Erreur dans le fichier IN fonction open fail.\n");
 	else if (error == 8)
 		ft_printf("Erreur dans le fichier OUT fonction open fail.\n");
-	free(p);
+	free_pipex(p);
 	exit(0);
 }

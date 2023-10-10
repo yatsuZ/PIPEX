@@ -6,7 +6,7 @@
 /*   By: yzaoui <yzaoui@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:21:56 by yatsu             #+#    #+#             */
-/*   Updated: 2023/10/10 17:29:52 by yzaoui           ###   ########.fr       */
+/*   Updated: 2023/10/10 18:18:44 by yzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	exec(t_pipex *p)
 {
 	exec_f1_to_cmd1(p);
 	exec_cmd2_to_f2(p);
-	close(p->pipfd[1]);
+	close(p->pipfd[0]);
 	close(p->pipfd[1]);
 	waitpid(-1, &(p->status), 0);
 	waitpid(-1, &(p->status), 0);
