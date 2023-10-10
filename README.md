@@ -53,8 +53,8 @@ A chaque étape, vérifier l'absence de fuites de mémoire !!!
 |       CE QUE JE DOIS FAIRE        |  valide      |
 | ----------------------------- | ------------ |
 |      Pouvoir exécuter une commande en mode simple comme "./pipex ls"	 | ✅ 28/09/2023 |
-|      Pouvoir rediriger la sortie vers un fichier et le créer s'il n'existe pas | X |
-|      Pouvoir rediriger l'entrée d'une commande à partir d'un fichier | X |
+|      Pouvoir rediriger l'entrée d'une commande à partir d'un fichier | ✅ 03/10/2023 |
+|      Pouvoir rediriger la sortie vers un fichier et le créer s'il n'existe pas | ✅ 10/10/2023 |
 |      Pouvoir rediriger la sortie de cmd1 vers cmd2 | X |
 |      Fusionner toutes les fonctionnalités | X |
 |      Assurer que les commandes s'exécutent simultanément | X |
